@@ -14,5 +14,6 @@ class ProjectInsuranceScrapItem(scrapy.Item):
     company = scrapy.Field()
     product = scrapy.Field()
     status = scrapy.Field()
-    link = scrapy.Field()
+    contract_link = scrapy.Field()
+    price_link = scrapy.Field()
     

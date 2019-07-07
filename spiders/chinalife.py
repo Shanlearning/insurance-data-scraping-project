@@ -28,7 +28,8 @@ class ChinalifeSpider(scrapy.Spider):
             item['company'] = part.css('span.text::text').get()
             item['product'] = part.css('small.author::text').get()
             item['status'] = '在售'
-            item['link'] = part.css('div.tags a.tag::text').getall()   
+            item['contract_link'] = part.css('div.tags a.tag::text').getall() 
+            item['price_link'] = ''
             # 输出数据
             yield item 
         
@@ -46,7 +47,8 @@ class ChinalifeSpider(scrapy.Spider):
             item['company'] = part.css('span.text::text').get()
             item['product'] = part.css('small.author::text').get()
             item['status'] = '停售'
-            item['link'] = part.css('div.tags a.tag::text').getall()
+            item['contract_link'] = part.css('div.tags a.tag::text').getall()
+            item['price_link'] = ''
             # 输出数据
             yield item 
         
