@@ -5,7 +5,7 @@ from project_insurance_scrap.items import  ProjectInsuranceScrapItem
 
 class ChinalifeSpider(scrapy.Spider):
     # 抓取机名字
-    name = 'chinalife'
+    name = '中国人寿'
     cn_name = '中国人寿'
     # 允许的抓取范围
     allowed_domains = ['http://www.e-chinalife.com/']
@@ -23,15 +23,15 @@ class ChinalifeSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.tingshou_parse)
             
 
-    def zaishou_parse(self, response):                
+    def zaishou_parse(self, response,cn_name):                
         # 从每一行抽取数据
         for part in response.css('.downlist li'):
             # 在售保险的内容输入
             item = ProjectInsuranceScrapItem()            
-            item['company'] = part.css('span.text::text').get()
+            item['company'] = cn_name
             item['product'] = part.css("a::text").getall()[1],
             item['status'] = '在售'
-            item['contract_link'] = part.css('div.tags a.tag::text').getall() 
+            item['contract_link'] = "http://www.e-chinalife.com/" + part.css("::attr(href)").get()
             item['price_link'] = ''
             # 输出数据
             yield item 
@@ -42,15 +42,15 @@ class ChinalifeSpider(scrapy.Spider):
             next_page = response.urljoin(next_page)
             yield scrapy.Request(next_page, callback=self.zaishou_parse)
             
-    def tingshou_parse(self, response):                
+    def tingshou_parse(self, response，cn_name):                
         # 从每一行抽取数据
         for part in response.css('.downlist li'):
             # 停售保险的内容输入
             item = ProjectInsuranceScrapItem()            
-            item['company'] = part.css('span.text::text').get()
-            item['product'] = part.css('small.author::text').get()
+            item['company'] = cn_name
+            item['product'] = part.css("a::text").getall()[1],
             item['status'] = '停售'
-            item['contract_link'] = part.css('div.tags a.tag::text').getall()
+            item['contract_link'] = "http://www.e-chinalife.com/" + part.css("::attr(href)").get()
             item['price_link'] = ''
             # 输出数据
             yield item 
