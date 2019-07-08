@@ -11,8 +11,9 @@ class ProjectInsuranceScrapPipeline(object):
         crawler.signals.connect(pipeline.spider_closed, signals.spider_closed)
         return pipeline
     
-    def spider_opened(self, spider):
-        self.file = open('output.csv', 'w+b')
+    def spider_opened(self, spider,item):
+        filename = item['company_name'] +'.csv'
+        self.file = open(filename, 'w+b')
         self.exporter = CsvItemExporter(self.file)
         self.exporter.start_exporting()
         

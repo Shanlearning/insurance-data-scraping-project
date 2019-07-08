@@ -29,11 +29,11 @@ class A中国平安Spider(scrapy.Spider):
                   'X-Requested-With': 'XMLHttpRequest'}
         
         for url in danren_urls:
-            yield scrapy.Request(url=url, headers = header , callback=self.parse)
+            yield scrapy.Request(url=url, headers = header , callback=self.dan_parse)
         for url in group_urls:
-            yield scrapy.Request(url=url , callback=self.parse)
+            yield scrapy.Request(url=url , callback=self.group_parse)
             
-    def parse(self, response):
+    def dan_parse(self, response):
          #从每一行抽取数据       
         for part in response.css("map"):
             # 在售保险的内容输入
@@ -41,7 +41,7 @@ class A中国平安Spider(scrapy.Spider):
             item['company_name'] = '中国平安'
         
             item['product_type'] = part.css("PLAN_SALES_CHANNEL::text").get()
-            item['product_id'] 
+            item['product_id'] = part.css("PLAN_CODE::text").get()
             item['product_name'] = part.css("CLAUSE_NAME::text").get()
             item['product_sale_status'] = part.css("PLAN_SALES_STATUS::text").get()
             
@@ -54,10 +54,24 @@ class A中国平安Spider(scrapy.Spider):
             item['product_end_date'] = part.css("END_DATE::text").get()  
             # 输出数据
             yield item
-    
-    def 
             
+    def group_parse(self, response):
+         #从每一行抽取数据       
+        for part in response.css("map"):
+            # 在售保险的内容输入
+            item = ProjectInsuranceScrapItem()            
+            item['company_name'] = '中国平安'
+        
+            item['product_type'] = part.css("PLAN_SALES_CHANNEL::text").get()
+            item['product_id'] = part.css("PLAN_CODE::text").get()
+            item['product_name'] = part.css("CLAUSE_NAME::text").get()
+            item['product_sale_status'] = part.css("PLAN_SALES_STATUS::text").get()
+            item['product_contract_link'] = 'http://life.pingan.com' + part.css("LINK_URL::text").get()
             
+            item['product_start_date'] =  part.css("START_DATE::text").get()
+            item['product_end_date'] = part.css("END_DATE::text").get()  
+            # 输出数据
+            yield item       
             
             
             
