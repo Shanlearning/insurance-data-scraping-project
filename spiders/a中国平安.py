@@ -8,7 +8,7 @@ class A中国平安Spider(scrapy.Spider):
     data = {'requestid': 'com.palic.elis.pos.intf.biz.action.PosQueryAction.queryPlanClause',
             'SALES_STATUS': '03'}
     
-    start_urls = "http://life.pingan.com/gongkaixinxipilu/baoxianchanpinmulujitiaokuan.jsp" 
+    start_urls = "http://life.pingan.com/life_insurance/elis.pa18.commonQuery.visit?requestid=com.palic.elis.pos.intf.biz.action.PosQueryAction.queryPlanClause&SALES_STATUS=03" 
     
     def parse(self, response):
         
