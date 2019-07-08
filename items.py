@@ -10,11 +10,20 @@ import scrapy
 class ProjectInsuranceScrapItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    company = scrapy.Field()
-    product = scrapy.Field()
+    company_name = scrapy.Field()
+    
     product_type = scrapy.Field()
-    status = scrapy.Field()
-    contract_link = scrapy.Field()
-    price_link = scrapy.Field()
+    product_id = scrapy.Field()
+    product_name = scrapy.Field()
+    product_sale_status = scrapy.Field()
+    
+    
+    product_contract_link = scrapy.Field()
+    product_price_link = scrapy.Field()
+    
+    
+    product_start_date = scrapy.Field()
+    product_end_date = scrapy.Field()
+    
     
     

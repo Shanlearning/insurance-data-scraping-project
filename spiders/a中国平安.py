@@ -5,12 +5,16 @@ from project_insurance_scrap.items import  ProjectInsuranceScrapItem
 class A中国平安Spider(scrapy.Spider):
     name = '中国平安'
     
-    start_urls = ['http://life.pingan.com/gongkaixinxipilu/baoxianchanpinmulujitiaokuan.jsp']
-    
-    
-    def parse(self):
-        # 输入在售保险的第一页网址
-        url = "http://life.pingan.com/life_insurance/elis.pa18.commonQuery.visit?requestid=com.palic.elis.pos.intf.biz.action.PosQueryAction.queryPlanClause&SALES_STATUS=03" 
+    def start_requests(self):
+        danren_urls = [
+            'http://life.pingan.com/life_insurance/elis.pa18.commonQuery.visit?requestid=com.palic.elis.pos.intf.biz.action.PosQueryAction.queryPlanClause&SALES_STATUS=01',
+            'http://life.pingan.com/life_insurance/elis.pa18.commonQuery.visit?requestid=com.palic.elis.pos.intf.biz.action.PosQueryAction.queryPlanClause&SALES_STATUS=02',
+            'http://life.pingan.com/life_insurance/elis.pa18.commonQuery.visit?requestid=com.palic.elis.pos.intf.biz.action.PosQueryAction.queryPlanClause&SALES_STATUS=03',        
+        ]
+        
+        group_urls = ['http://life.pingan.com/gongkaixinxipilu_xml/tingshou_tuanxian.xml',  
+                      'http://life.pingan.com/gongkaixinxipilu_xml/zaishou_tuanxian.xml',
+        ]
         
         header = {'Accept': 'application/xml, text/xml, */*',
                   'Accept-Encoding': 'gzip, deflate',
@@ -24,22 +28,47 @@ class A中国平安Spider(scrapy.Spider):
                   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
                   'X-Requested-With': 'XMLHttpRequest'}
         
-        yield scrapy.Request(url, callback=self.parse_ajax,
-                             headers = header,       
-                             dont_filter=True)
-    
-    def parse_ajax(self, response):
-         #从每一行抽取数据
-        
+        for url in danren_urls:
+            yield scrapy.Request(url=url, headers = header , callback=self.parse)
+        for url in group_urls:
+            yield scrapy.Request(url=url , callback=self.parse)
+            
+    def parse(self, response):
+         #从每一行抽取数据       
         for part in response.css("map"):
             # 在售保险的内容输入
             item = ProjectInsuranceScrapItem()            
-            item['company'] = '中国平安'
-            item['product'] = part.css("CLAUSE_NAME::text").get(),
-            item['status'] = part.css("PLAN_SALES_STATUS::text").get()
-            item['contract_link'] = 'http://www.pingan.com/life_insurance/elis.intf.queryClauseContent.visit?VERSION_NO=' \
+            item['company_name'] = '中国平安'
+        
+            item['product_type'] = part.css("PLAN_SALES_CHANNEL::text").get()
+            item['product_id'] 
+            item['product_name'] = part.css("CLAUSE_NAME::text").get()
+            item['product_sale_status'] = part.css("PLAN_SALES_STATUS::text").get()
+            
+            item['product_contract_link'] = 'http://www.pingan.com/life_insurance/elis.intf.queryClauseContent.visit?VERSION_NO=' \
                                      + part.css("VERSION_NO::text").get() + '&DOC_CODE=01'
-            item['price_link'] = 'http://www.pingan.com/life_insurance/elis.intf.queryClauseContent.visit?VERSION_NO='   \
+            item['product_price_link'] = 'http://www.pingan.com/life_insurance/elis.intf.queryClauseContent.visit?VERSION_NO='   \
                                      + part.css("VERSION_NO::text").get() + '&DOC_CODE=04'
+                                     
+            item['product_start_date'] =  part.css("START_DATE::text").get()
+            item['product_end_date'] = part.css("END_DATE::text").get()  
             # 输出数据
             yield item
+    
+    def 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
