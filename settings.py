@@ -16,8 +16,8 @@ NEWSPIDER_MODULE = 'project_insurance_scrap.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'project_insurance_scrap (+http://www.yourdomain.com)'
-
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
+              
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
