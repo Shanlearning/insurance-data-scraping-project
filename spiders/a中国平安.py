@@ -25,7 +25,7 @@ class A中国平安Spider(scrapy.Spider):
                   'X-Requested-With': 'XMLHttpRequest'}
         
         yield scrapy.Request(url, callback=self.parse_ajax,
-                             header = header,       
+                             headers = header,       
                              dont_filter=True)
     
     def parse_ajax(self, response):
