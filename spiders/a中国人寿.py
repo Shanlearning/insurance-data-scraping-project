@@ -45,8 +45,7 @@ class A中国人寿Spider(scrapy.Spider):
             + str(re.findall("\d+",next_page)[0])
             yield scrapy.Request(next_page, callback=self.zaishou_parse)
             
-    def tingshou_parse(self, response,cn_name=name,next_url_begin = tingshou_url_begin , 
-                       next_url_end = tingshou_url_end):                
+    def tingshou_parse(self, response):                
         # 从每一行抽取数据
         for part in response.css('.downlist li'):
             # 停售保险的内容输入
