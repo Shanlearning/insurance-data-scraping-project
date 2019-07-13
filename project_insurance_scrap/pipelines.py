@@ -12,7 +12,8 @@ class ProjectInsuranceScrapPipeline(object):
         return pipeline
     
     def spider_opened(self, spider):
-        dir = 'output/'
+        # 修改此处的文件储存路径
+        dir = 'E:/insurance/保险公司数据统计/'
         self.file = open( dir + spider.name+ '.csv', 'w+b')
         self.exporter = CsvItemExporter(self.file, encoding='utf-8-sig')
         self.exporter.start_exporting()
