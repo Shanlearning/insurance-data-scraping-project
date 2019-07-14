@@ -8,7 +8,7 @@ import re
 lua = '''  #自定义lua脚本
     function main(splash)
         assert(splash:go(splash.args.url))                                                                            
-        assert(splash:wait(0.5))
+        assert(splash:wait(10))
         return splash:html()
         end
     '''
@@ -22,8 +22,8 @@ class A友邦保险Spider(scrapy.Spider):
         # 输入在售保险的第一页网址
         zaishou_urls = [
             'https://www.aia.com.cn/zh-cn/aia/media/gongkaixinxipilou/dongtaichanpin/zaishouchanpin.html', ]
-        for url in zaishou_urls:
-            yield SplashRequest(url = url, callback=self.zaishou_parse)
+        #for url in zaishou_urls:
+        #    yield SplashRequest(url = url, callback=self.zaishou_parse)
 
         # 输入停售保险的第一页网址
         tingshou_urls = [
@@ -44,7 +44,7 @@ class A友邦保险Spider(scrapy.Spider):
                   }
 
         for url in tingshou_urls:
-            yield SplashRequest(url=url, headers= header , args ={'lua_source':lua} , callback=self.tingshou_parse)
+            yield SplashRequest(url=url, headers= header , args={'lua_source': lua, 'timeout': 3600}, callback=self.tingshou_parse)
 
     def zaishou_parse(self, response):
         # 从每一行抽取数据
@@ -86,7 +86,7 @@ class A友邦保险Spider(scrapy.Spider):
             item['product_id'] = part[0]
             item['product_name'] = part[1]
             item['product_sale_status'] = '停售'
-            #item['product_contract_link'] = "https://www.aia.com.cn" + re.findall('href="(.*?)"',part[3])[0]
+            item['product_contract_link'] = "https://www.aia.com.cn" + re.findall('href="(.*?)"',part[3])[0]
             item['product_price_link'] = ''
 
             item['product_start_date'] = ''
