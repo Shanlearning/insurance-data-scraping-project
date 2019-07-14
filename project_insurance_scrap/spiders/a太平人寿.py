@@ -13,7 +13,6 @@ class A太平人寿Spider(scrapy.Spider):
         urls = ['http://life.cntaiping.com/info-bxcp/']
         for url in urls:        
             yield scrapy.Request(url=url,callback=self.parse)
-            
 
     def parse(self, response):
         # 从每一行抽取数据
@@ -29,20 +28,10 @@ class A太平人寿Spider(scrapy.Spider):
             
             item['product_type'] = ''
             item['product_id'] = ''
-            product_name = re.findall('<td>(.*)</td>',part)
-            if product_name != []:
-                product_name = product_name[0]
-            else:
-                product_name = ""
-            item['product_name'] = product_name
+            item['product_name'] = shan.str_extract('<td>(.*)</td>',part)
             item['product_sale_status'] = '在售'
-            
-            product_contract_link = re.findall('href="(.*)?">',part)
-            if product_contract_link != []:
-                product_contract_link = product_contract_link[0]
-            else:
-                product_contract_link = ""           
-            item['product_contract_link'] = product_contract_link
+
+            item['product_contract_link'] = shan.str_extract('href="(.*)?">',part)
             
             item['product_price_link'] = ''
             
@@ -61,24 +50,15 @@ class A太平人寿Spider(scrapy.Spider):
             
             item['product_type'] = ''
             item['product_id'] = ''
-            product_name = re.findall('<td>(.*)</td>',part)
-            if product_name != []:
-                product_name = product_name[0]
-            else:
-                product_name = ""
-            item['product_name'] = product_name
+
+            item['product_name'] = shan.str_extract('<td>(.*)</td>', part)
             item['product_sale_status'] = '停售'
-            
-            product_contract_link = re.findall('href="(.*)?">',part)
-            if product_contract_link != []:
-                product_contract_link = product_contract_link[0]
-            else:
-                product_contract_link = ""           
-            item['product_contract_link'] = product_contract_link
+
+            item['product_contract_link'] = shan.str_extract('href="(.*)?">',part)
             
             item['product_price_link'] = ''
             
-            item['product_start_date'] =  ''
+            item['product_start_date'] = ''
             item['product_end_date'] = ''  
                 # 输出数据
             yield item 

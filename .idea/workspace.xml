@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa4bcbe9-21d5-41df-b7bd-a49a626c0fd2" name="Default Changelist" comment="" />
+    <list default="true" id="fa4bcbe9-21d5-41df-b7bd-a49a626c0fd2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/project_insurance_scrap/scrapfunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_insurance_scrap/scrapfunctions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,20 +26,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="53" selection-start-line="4" selection-end-line="4" selection-end-column="53" />
+            <state relative-caret-position="510">
+              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+              <folding>
+                <element signature="e#24#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8">
-              <caret line="52" column="12" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+            <state relative-caret-position="357">
+              <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -43,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project_insurance_scrap/scrapfunctions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="493">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -52,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://E:/代码研究/scrapy-splash-master/example/scrashtest/spiders/quotes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="170">
               <caret line="10" column="46" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="46" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
@@ -105,14 +112,14 @@
         <option value="$PROJECT_DIR$/project_insurance_scrap/pipelines.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/project_insurance_scrap/settings.py" />
-        <option value="$PROJECT_DIR$/project_insurance_scrap/scrapfunctions.py" />
         <option value="E:/代码研究/scrapy-splash-master/example/scrashtest/spiders/quotes.py" />
-        <option value="$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py" />
+        <option value="$PROJECT_DIR$/project_insurance_scrap/scrapfunctions.py" />
         <option value="$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py" />
+        <option value="$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="480" />
     <option name="y" value="255" />
     <option name="width" value="2880" />
@@ -222,7 +229,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="837" extended-state="7" />
+    <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26657736" />
@@ -308,30 +315,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="53" selection-start-line="4" selection-end-line="4" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project_insurance_scrap/scrapfunctions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/代码研究/scrapy-splash-master/example/scrashtest/spiders/quotes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="46" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project_insurance_scrap/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -359,10 +342,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://E:/代码研究/scrapy-splash-master/example/scrashtest/spiders/quotes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="46" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_insurance_scrap/scrapfunctions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8">
-          <caret line="52" column="12" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+        <state relative-caret-position="357">
+          <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

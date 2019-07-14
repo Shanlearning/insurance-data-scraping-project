@@ -62,7 +62,7 @@ class A友邦保险Spider(scrapy.Spider):
             item['product_id'] = part[0]
             item['product_name'] = part[1]
             item['product_sale_status'] = '在售'
-            item['product_contract_link'] = "https://www.aia.com.cn" + re.findall('href="(.*?)"',part[3])[0]
+            item['product_contract_link'] = "https://www.aia.com.cn" + shan.str_extract('href="(.*?)"',part[3])
             item['product_price_link'] = ''
 
             item['product_start_date'] = ''
