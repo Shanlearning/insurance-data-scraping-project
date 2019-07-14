@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa4bcbe9-21d5-41df-b7bd-a49a626c0fd2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/project_insurance_scrap/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_insurance_scrap/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapy命令表.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/scrapy命令表.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +27,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+            <state relative-caret-position="586">
+              <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a中国平安.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="30" column="55" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="30" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -94,7 +100,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="480" />
     <option name="y" value="255" />
     <option name="width" value="2880" />
@@ -204,10 +210,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
+    <frame x="-6" y="-6" width="1549" height="837" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25987944" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25987944" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -258,9 +264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-978" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a中国平安.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/project_insurance_scrap/middlewares.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -319,10 +322,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a中国平安.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="30" column="55" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="30" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        <state relative-caret-position="586">
+          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
         </state>
       </provider>
     </entry>
