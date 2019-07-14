@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa4bcbe9-21d5-41df-b7bd-a49a626c0fd2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_insurance_scrap/scrapfunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_insurance_scrap/scrapfunctions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_insurance_scrap/spiders/a友邦保险.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py" afterDir="false" />
-    </list>
+    <list default="true" id="fa4bcbe9-21d5-41df-b7bd-a49a626c0fd2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +34,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="8">
               <caret line="52" column="12" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
             </state>
           </provider>
@@ -117,7 +112,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="480" />
     <option name="y" value="255" />
     <option name="width" value="2880" />
@@ -227,7 +222,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
+    <frame x="-6" y="-6" width="1549" height="837" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26657736" />
@@ -366,7 +361,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project_insurance_scrap/spiders/a太平人寿.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="8">
           <caret line="52" column="12" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
         </state>
       </provider>
