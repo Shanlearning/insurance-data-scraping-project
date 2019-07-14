@@ -98,7 +98,7 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapy_splash.SplashMiddleware': 725,
     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
 }
- #设置去重过滤器
+#设置去重过滤器
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 
  #用来支持cache_args（可选）

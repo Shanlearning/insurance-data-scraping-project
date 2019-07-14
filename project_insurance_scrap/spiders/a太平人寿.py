@@ -20,8 +20,7 @@ class A太平人寿Spider(scrapy.Spider):
         result = response.css(".ts_product")
                 
         zs_result =  result[0].css("tr").getall()
-        zs_result = zs_result[1:len(zs_result)]
-        
+
         zs_result1 = []
         for part in zs_result:
             if "条款PDF文档" in part:
@@ -57,8 +56,7 @@ class A太平人寿Spider(scrapy.Spider):
             yield item
             
         ts_result =  result[1].css("tr").getall()
-        ts_result = ts_result[1:len(ts_result)]
-        
+
         ts_result1 = []
         for part in ts_result:
             if "条款PDF文档" in part:
