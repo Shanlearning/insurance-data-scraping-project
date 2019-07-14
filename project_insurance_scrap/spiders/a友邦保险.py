@@ -2,6 +2,7 @@
 import scrapy
 from scrapy_splash import SplashRequest
 from project_insurance_scrap.items import ProjectInsuranceScrapItem
+import project_insurance_scrap.scrapfunctions as shan
 import re
 
 lua = '''  #自定义lua脚本
@@ -48,10 +49,7 @@ class A友邦保险Spider(scrapy.Spider):
     def zaishou_parse(self, response):
         # 从每一行抽取数据
         result = response.css("tr").extract()
-        zs_result = []
-        for part in result:
-            if "getProduct" in part:
-                zs_result.append(part)
+        zs_result = shan.str_keep("getProduct",result)
 
         for part in zs_result:
             # 在售保险的内容输入
@@ -75,10 +73,7 @@ class A友邦保险Spider(scrapy.Spider):
     def tingshou_parse(self, response):
         # 从每一行抽取数据
         result = response.css("tr").extract()
-        ts_result = []
-        for part in result:
-            if "getProduct" in part:
-                ts_result.append(part)
+        ts_result = shan.str_keep("getProduct",result)
 
         for part in ts_result:
             # 停售保险的内容输入

@@ -2,6 +2,7 @@
 import scrapy
 import re
 from project_insurance_scrap.items import  ProjectInsuranceScrapItem
+import project_insurance_scrap.scrapfunctions as shan
 
 class A太平人寿Spider(scrapy.Spider):
     name = '太平人寿'
@@ -18,15 +19,10 @@ class A太平人寿Spider(scrapy.Spider):
         # 从每一行抽取数据
         
         result = response.css(".ts_product")
-                
-        zs_result =  result[0].css("tr").getall()
-
-        zs_result1 = []
-        for part in zs_result:
-            if "条款PDF文档" in part:
-                zs_result1.append(part)
+        zs_result = result[0].css("tr").getall()
+        zs_result = shan.str_keep("条款PDF文档",zs_result)
                
-        for part in zs_result1:
+        for part in zs_result:
                  # 在售保险的内容输入
             item = ProjectInsuranceScrapItem()            
             item['company_name'] = '太平人寿'
@@ -56,13 +52,9 @@ class A太平人寿Spider(scrapy.Spider):
             yield item
             
         ts_result =  result[1].css("tr").getall()
+        ts_result = shan.str_keep("条款PDF文档", ts_result)
 
-        ts_result1 = []
         for part in ts_result:
-            if "条款PDF文档" in part:
-                ts_result1.append(part)
-                
-        for part in ts_result1:
                 # 停售保险的内容输入
             item = ProjectInsuranceScrapItem()            
             item['company_name'] = '太平人寿'
