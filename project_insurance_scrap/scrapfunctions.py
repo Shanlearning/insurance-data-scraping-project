@@ -47,3 +47,12 @@ def str_extract(pattern, dat):
     return output
 
 
+def str_replace
+
+def str_replace_all
+
+def str_extract_all
+
+def str_split
+
+
