@@ -1,5 +1,5 @@
 import re
-
+import scrapy
 # keep word that has select attr
 
 #判断变量类型的函数
@@ -21,12 +21,22 @@ def getType(variate):
         type = "set"
     return type
 
+def str_detect_single(pattern,dat):
+    return(re.findall(pattern,dat) == [])
+
+
 def str_keep(pattern, dat):
-    keep = []
-    for part in dat:
-        if pattern in part:
-            keep.append(part)
-    return keep
+    if getType(dat) == "string":
+        if pattern in dat:
+            return dat
+        else:
+            return ""
+    elif getType(dat) == "list":
+        keep = []
+        for part in dat:
+            if pattern in part:
+                keep.append(part)
+        return keep
 
 def str_extract(pattern, dat):
     output =[]
