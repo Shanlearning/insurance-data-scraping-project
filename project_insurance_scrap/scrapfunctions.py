@@ -1,5 +1,4 @@
 import re
-import scrapy
 # keep word that has select attr
 
 def str_detect_single(pattern,dat):
