@@ -24,6 +24,7 @@ class ProjectInsuranceScrapItem(scrapy.Item):
     product_pv_example_link = scrapy.Field()
     product_chief_actuary_claim_link = scrapy.Field()
     product_law_response_link = scrapy.Field()
+    product_special_status = scrapy.Field()
 
     product_start_date = scrapy.Field()
     product_end_date = scrapy.Field()

@@ -4,6 +4,16 @@ import re
 def str_detect_single(pattern,dat):
     return(re.findall(pattern,dat) != [])
 
+def which(dat):
+    if type(dat) == bool:
+        return 0
+    elif type(dat) == list:
+        output = []
+        for i in range(0, len(dat) ):
+            if dat[i] == True:
+                output.append(i)
+        return output
+
 def str_detect(pattern,dat):
     if type(dat) == str:
         return str_detect_single(pattern,dat)
@@ -15,10 +25,10 @@ def str_detect(pattern,dat):
 
 def str_keep(pattern, dat):
     if type(dat) == str:
-        if str_detect(dat) == True:
-            return [dat]
+        if str_detect(pattern,dat) == True:
+            return dat
         else:
-            return [""]
+            return ""
     elif type(dat) == list:
         keep = []
         det = str_detect(pattern ,dat )
