@@ -38,6 +38,18 @@ def str_keep(pattern, dat):
                 keep.append(part)
         return keep
 
+def str_detect_single(pattern,dat):
+    return(re.findall(pattern,dat) != [])
+
+def str_detect(pattern,dat):
+    if type(dat) == str:
+        return str_detect_single(pattern,dat)
+    elif type(dat) == list:
+        output = []
+        for part in dat:
+            output.extend(str_detect_single(pattern,dat))
+        return output
+
 def str_extract(pattern, dat):
     output =[]
     if getType(dat) == "string":
