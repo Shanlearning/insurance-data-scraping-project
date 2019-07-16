@@ -1,12 +1,9 @@
 import re
 # keep word that has select attr
 
-def str_detect_single(pattern,dat):
-    return(re.findall(pattern,dat) != [])
-
 def which(dat):
     if type(dat) == bool:
-        return 0
+        return []
     elif type(dat) == list:
         output = []
         for i in range(0, len(dat) ):
@@ -14,13 +11,16 @@ def which(dat):
                 output.append(i)
         return output
 
+def str_detect_single(pattern,dat):
+    return(re.findall(pattern,dat) != [])
+
 def str_detect(pattern,dat):
     if type(dat) == str:
         return str_detect_single(pattern,dat)
     elif type(dat) == list:
         output = []
         for part in dat:
-            output.extend([str_detect_single(pattern,part)])
+            output.extend( [str_detect_single(pattern,part)] )
         return output
 
 def str_keep(pattern, dat):

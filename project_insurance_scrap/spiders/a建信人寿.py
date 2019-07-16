@@ -18,7 +18,7 @@ class A建信人寿Spider(scrapy.Spider):
     def parse(self, response):
         # 从每一行抽取数据
         
-        result =  response.css('tr').extract()
+        result = response.css('tr').extract()
 
         zs_result = result[shan.which(shan.str_detect("在售", result)[0]):shan.which(shan.str_detect("停售", result))[0]]
         ts_result = result[shan.which(shan.str_detect("停售", result)[0]):len(result)]
