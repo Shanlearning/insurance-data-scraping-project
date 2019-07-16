@@ -16,12 +16,15 @@ class ProjectInsuranceScrapItem(scrapy.Item):
     product_id = scrapy.Field()
     product_name = scrapy.Field()
     product_sale_status = scrapy.Field()
-    
-    
+
+    product_official_report_list = scrapy.Field()
     product_contract_link = scrapy.Field()
     product_price_link = scrapy.Field()
-    
-    
+    product_pv_full_list_link = scrapy.Field()
+    product_pv_example_link = scrapy.Field()
+    product_chief_actuary_claim_link = scrapy.Field()
+    product_law_response_link = scrapy.Field()
+
     product_start_date = scrapy.Field()
     product_end_date = scrapy.Field()
     
