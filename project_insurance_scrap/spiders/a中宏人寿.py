@@ -23,12 +23,12 @@ class A中宏人寿Spider(scrapy.Spider):
         zs_result1 = []
         for part in zs_result:
             zs_result1.extend(re.split('div class="item"', part))
-        zs_result = shan.str_keep("险", zs_result1)
+        zs_result = shan.str_keep("(寿|保)险", zs_result1)
 
         ts_result1 = []
         for part in ts_result:
             ts_result1.extend(re.split('div class="item"', part))
-        ts_result = shan.str_keep("险",ts_result1)
+        ts_result = shan.str_keep("(寿|保)",ts_result1)
 
         for part in zs_result:
             # 在售保险的内容输入
@@ -37,7 +37,7 @@ class A中宏人寿Spider(scrapy.Spider):
             item['product_type'] = ''
 
             item['product_name'] =  shan.str_extract("中宏.*?险",part)
-            item['product_sale_status'] = ' '
+            item['product_sale_status'] = '在售'
 
             item['product_contract_link'] = "www.manulife-sinochem.com"+shan.str_extract('<a href="(.*)target',part)
             item['product_price_link'] = ''
@@ -47,7 +47,22 @@ class A中宏人寿Spider(scrapy.Spider):
             # 输出数据
             yield item
 
+        for part in ts_result:
+            # 停售保险的内容输入
+            item = ProjectInsuranceScrapItem()
+            item['company_name'] = '中宏人寿'
+            item['product_type'] = ''
 
+            item['product_name'] =  shan.str_extract("中宏.*?险",part)
+            item['product_sale_status'] = '停售'
+
+            item['product_contract_link'] = "www.manulife-sinochem.com"+shan.str_extract('<a href="(.*)target',part)
+            item['product_price_link'] = ''
+
+            item['product_start_date'] = ''
+            item['product_end_date'] = ''
+            # 输出数据
+            yield item
 
 
 

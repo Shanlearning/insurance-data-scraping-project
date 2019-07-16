@@ -2,42 +2,6 @@ import re
 import scrapy
 # keep word that has select attr
 
-#判断变量类型的函数
-def getType(variate):
-    type=None
-    if isinstance(variate,int):
-        type = "integer"
-    elif isinstance(variate,str):
-        type = "string"
-    elif isinstance(variate,float):
-        type = "float"
-    elif isinstance(variate,list):
-        type = "list"
-    elif isinstance(variate,tuple):
-        type = "tuple"
-    elif isinstance(variate,dict):
-        type = "dict"
-    elif isinstance(variate,set):
-        type = "set"
-    return type
-
-def str_detect_single(pattern,dat):
-    return(re.findall(pattern,dat) == [])
-
-
-def str_keep(pattern, dat):
-    if getType(dat) == "string":
-        if pattern in dat:
-            return dat
-        else:
-            return ""
-    elif getType(dat) == "list":
-        keep = []
-        for part in dat:
-            if pattern in part:
-                keep.append(part)
-        return keep
-
 def str_detect_single(pattern,dat):
     return(re.findall(pattern,dat) != [])
 
@@ -47,12 +11,26 @@ def str_detect(pattern,dat):
     elif type(dat) == list:
         output = []
         for part in dat:
-            output.extend(str_detect_single(pattern,dat))
+            output.extend([str_detect_single(pattern,part)])
         return output
+
+def str_keep(pattern, dat):
+    if type(dat) == str:
+        if str_detect(dat) == True:
+            return [dat]
+        else:
+            return [""]
+    elif type(dat) == list:
+        keep = []
+        det = str_detect(pattern ,dat )
+        for i in range(0,len(det)):
+            if det[i] == True:
+                keep.append(dat[i])
+        return keep
 
 def str_extract(pattern, dat):
     output =[]
-    if getType(dat) == "string":
+    if type(dat) == str:
         output = re.findall(pattern, dat)
         if output != []:
             output = output[0]
