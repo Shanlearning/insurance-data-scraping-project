@@ -1,6 +1,11 @@
-import re
 import numpy
+import re
+import project_insurance_scrap.scrap_basic_functions as shanbasic
 
+
+def str_detect(pattern,dat):
+    output = shanbasic.str_detect_vectorized(pattern,dat)
+    return list(output)
 # keep word that has select attr
 
 def which(dat):
@@ -13,17 +18,6 @@ def which(dat):
                 output.append(i)
         return output
 
-def str_detect_single(pattern,dat):
-    return(re.findall(pattern,dat) != [])
-
-def str_detect(pattern,dat):
-    if type(dat) == str:
-        return str_detect_single(pattern,dat)
-    elif type(dat) == list:
-        output = []
-        for part in dat:
-            output.extend( [str_detect_single(pattern,part)] )
-        return output
 
 def str_keep(pattern, dat):
     if type(dat) == str:
