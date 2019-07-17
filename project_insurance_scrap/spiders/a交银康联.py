@@ -30,18 +30,14 @@ class A交银康联Spider(scrapy.Spider):
             # 在售保险的内容输入
             item = ProjectInsuranceScrapItem()
             item['company_name'] = '交银康联'
-            item['product_type'] = ''
 
             part = re.findall(">(.*)<",part)
 
-            item['product_name'] =  shan.str_keep("交银|险", part)
+            item['product_name'] =  re.sub(" ","",shan.str_keep("交银|险", part))
             item['product_sale_status'] = '在售'
 
             item['product_contract_link'] = "www.bocommlife.com"+shan.str_keep("/",shan.str_extract('href="(.*?)">',part))
-            item['product_price_link'] = ''
 
-            item['product_start_date'] = ''
-            item['product_end_date'] = ''
             # 输出数据
             yield item
             
@@ -49,18 +45,14 @@ class A交银康联Spider(scrapy.Spider):
             # 在售保险的内容输入
             item = ProjectInsuranceScrapItem()
             item['company_name'] = '交银康联'
-            item['product_type'] = ''
 
             part = re.findall(">(.*)<",part)
 
-            item['product_name'] =  shan.str_keep("交银|险", part)
+            item['product_name'] = re.sub(" ","",shan.str_keep("交银|险", part))
             item['product_sale_status'] = '停售'
 
             item['product_contract_link'] = "www.bocommlife.com"+shan.str_keep("/",shan.str_extract('href="(.*?)">',part))
-            item['product_price_link'] = ''
 
-            item['product_start_date'] = ''
-            item['product_end_date'] = ''
             # 输出数据
             yield item
         

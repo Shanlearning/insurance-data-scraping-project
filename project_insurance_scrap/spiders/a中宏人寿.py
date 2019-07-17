@@ -34,16 +34,12 @@ class A中宏人寿Spider(scrapy.Spider):
             # 在售保险的内容输入
             item = ProjectInsuranceScrapItem()
             item['company_name'] = '中宏人寿'
-            item['product_type'] = ''
 
             item['product_name'] =  shan.str_extract("中宏.*?险",part)
             item['product_sale_status'] = '在售'
 
             item['product_contract_link'] = "www.manulife-sinochem.com"+shan.str_extract('<a href="(.*)target',part)
-            item['product_price_link'] = ''
 
-            item['product_start_date'] = ''
-            item['product_end_date'] = ''
             # 输出数据
             yield item
 
@@ -51,16 +47,12 @@ class A中宏人寿Spider(scrapy.Spider):
             # 停售保险的内容输入
             item = ProjectInsuranceScrapItem()
             item['company_name'] = '中宏人寿'
-            item['product_type'] = ''
 
             item['product_name'] =  shan.str_extract("中宏.*?险",part)
             item['product_sale_status'] = '停售'
 
             item['product_contract_link'] = "www.manulife-sinochem.com"+shan.str_extract('<a href="(.*)target',part)
-            item['product_price_link'] = ''
 
-            item['product_start_date'] = ''
-            item['product_end_date'] = ''
             # 输出数据
             yield item
 

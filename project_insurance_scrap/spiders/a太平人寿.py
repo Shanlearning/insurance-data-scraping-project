@@ -25,18 +25,12 @@ class A太平人寿Spider(scrapy.Spider):
                  # 在售保险的内容输入
             item = ProjectInsuranceScrapItem()            
             item['company_name'] = '太平人寿'
-            
-            item['product_type'] = ''
-            item['product_id'] = ''
+
             item['product_name'] = shan.str_extract('<td>(.*)</td>',part)
             item['product_sale_status'] = '在售'
 
             item['product_contract_link'] = shan.str_extract('href="(.*)?">',part)
-            
-            item['product_price_link'] = ''
-            
-            item['product_start_date'] =  ''
-            item['product_end_date'] = ''  
+
                 # 输出数据
             yield item
             
@@ -47,19 +41,12 @@ class A太平人寿Spider(scrapy.Spider):
                 # 停售保险的内容输入
             item = ProjectInsuranceScrapItem()            
             item['company_name'] = '太平人寿'
-            
-            item['product_type'] = ''
-            item['product_id'] = ''
 
             item['product_name'] = shan.str_extract('<td>(.*)</td>', part)
             item['product_sale_status'] = '停售'
 
             item['product_contract_link'] = shan.str_extract('href="(.*)?">',part)
-            
-            item['product_price_link'] = ''
-            
-            item['product_start_date'] = ''
-            item['product_end_date'] = ''  
+
                 # 输出数据
             yield item 
        

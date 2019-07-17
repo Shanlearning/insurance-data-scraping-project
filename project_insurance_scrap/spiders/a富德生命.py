@@ -26,15 +26,11 @@ class A富德生命Spider(scrapy.Spider):
             item = ProjectInsuranceScrapItem()
             part = re.findall('<td>(.*?)</td>', part)
             item['company_name'] = '富德生命'
-            item['product_type'] = ''
-            item['product_id'] = ''
             item['product_name'] = part[1]
             item['product_sale_status'] = '在售'
             item['product_contract_link'] = "https://www.sino-life.com" + shan.str_keep('upload',shan.str_extract('href="(.*)pdf',part[4])) + "pdf"
-            item['product_price_link'] = ''
 
             item['product_start_date'] = part[2]
-            item['product_end_date'] = ''
             # 输出数据
             yield item
 
@@ -43,14 +39,10 @@ class A富德生命Spider(scrapy.Spider):
             item = ProjectInsuranceScrapItem()
             part = re.findall('<td>(.*?)</td>', part)
             item['company_name'] = '富德生命'
-            item['product_type'] = ''
-            item['product_id'] = ''
             item['product_name'] = part[1]
             item['product_sale_status'] = '停售'
             item['product_contract_link'] = "https://www.sino-life.com" + shan.str_keep('upload',shan.str_extract('href="(.*)pdf',part[4])) + "pdf"
-            item['product_price_link'] = ''
 
             item['product_start_date'] = part[2]
-            item['product_end_date'] = ''
             # 输出数据
             yield item

@@ -33,17 +33,13 @@ class A泰康人寿Spider(scrapy.Spider):
                 part = re.findall('<a(.*)?</a>',part)
                 
                 item['company_name'] = '泰康人寿'            
-                item['product_type'] = ''
-                item['product_id'] = ''
+
                 name = re.sub(" ","",re.findall('>.*',part[0])[0])
                 name = re.sub(">","",name)
                 item['product_name'] = name
                 item['product_sale_status'] = '在售'
                 item['product_contract_link'] = re.findall('href="(.*)?" ',part[1])[0]
-                item['product_price_link'] = ''
-            
-                item['product_start_date'] =  ''
-                item['product_end_date'] = ''  
+
                 # 输出数据
                 yield item                  
                 
@@ -58,18 +54,13 @@ class A泰康人寿Spider(scrapy.Spider):
                 
                 part = re.findall('<a(.*)?</a>',part)
                 item['company_name'] = '泰康人寿'
-                
-                item['product_type'] = ''
-                item['product_id'] = ''
+
                 name = re.sub(" ","",re.findall('>.*',part[0])[0])
                 name = re.sub(">","",name)
                 item['product_name'] = name
                 item['product_sale_status'] = '停售'
                 item['product_contract_link'] = re.findall('href="(.*)?" ',part[1])[0]
-                item['product_price_link'] = ''
-            
-                item['product_start_date'] =  ''
-                item['product_end_date'] = ''  
+
                 # 输出数据
                 yield item 
         

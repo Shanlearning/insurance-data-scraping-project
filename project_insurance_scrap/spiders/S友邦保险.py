@@ -59,15 +59,11 @@ class A友邦保险Spider(scrapy.Spider):
 
             item['company_name'] = '友邦保险'
 
-            item['product_type'] = ''
             item['product_id'] = part[0]
             item['product_name'] = part[1]
             item['product_sale_status'] = '在售'
             item['product_contract_link'] = "https://www.aia.com.cn" + shan.str_extract('href="(.*?)"',part[3])
-            item['product_price_link'] = ''
 
-            item['product_start_date'] = ''
-            item['product_end_date'] = ''
             # 输出数据
             yield item
 
@@ -83,14 +79,10 @@ class A友邦保险Spider(scrapy.Spider):
 
             item['company_name'] = '友邦保险'
 
-            item['product_type'] = ''
             item['product_id'] = part[0]
             item['product_name'] = part[1]
             item['product_sale_status'] = '停售'
             item['product_contract_link'] = "https://www.aia.com.cn" + shan.str_extract('href="(.*?)"',part[3])
-            item['product_price_link'] = ''
 
-            item['product_start_date'] = ''
-            item['product_end_date'] = ''
             # 输出数据
             yield item
