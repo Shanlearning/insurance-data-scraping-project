@@ -1,4 +1,6 @@
 import re
+import numpy
+
 # keep word that has select attr
 
 def which(dat):
