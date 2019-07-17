@@ -38,7 +38,7 @@ class A中宏人寿Spider(scrapy.Spider):
             item['product_name'] =  shan.str_extract("中宏.*?险",part)
             item['product_sale_status'] = '在售'
 
-            item['product_contract_link'] = "www.manulife-sinochem.com"+shan.str_extract('<a href="(.*)target',part)
+            item['product_contract_link'] = "www.manulife-sinochem.com"+ shan.str_extract('<a href="(.*)"',part)
 
             # 输出数据
             yield item
@@ -51,7 +51,7 @@ class A中宏人寿Spider(scrapy.Spider):
             item['product_name'] =  shan.str_extract("中宏.*?险",part)
             item['product_sale_status'] = '停售'
 
-            item['product_contract_link'] = "www.manulife-sinochem.com"+shan.str_extract('<a href="(.*)target',part)
+            item['product_contract_link'] = "www.manulife-sinochem.com"+shan.str_extract('<a href="(.*)"',part)
 
             # 输出数据
             yield item

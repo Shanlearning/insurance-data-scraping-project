@@ -33,7 +33,7 @@ class A交银康联Spider(scrapy.Spider):
 
             part = re.findall(">(.*)<",part)
 
-            item['product_name'] =  re.sub(" ","",shan.str_keep("交银|险", part))
+            item['product_name'] = str.strip(re.sub(" ","",shan.str_keep("交银|险", part)))
             item['product_sale_status'] = '在售'
 
             item['product_contract_link'] = "www.bocommlife.com"+shan.str_keep("/",shan.str_extract('href="(.*?)">',part))
@@ -48,7 +48,7 @@ class A交银康联Spider(scrapy.Spider):
 
             part = re.findall(">(.*)<",part)
 
-            item['product_name'] = re.sub(" ","",shan.str_keep("交银|险", part))
+            item['product_name'] = str.strip(re.sub(" ","",shan.str_keep("交银|险", part)))
             item['product_sale_status'] = '停售'
 
             item['product_contract_link'] = "www.bocommlife.com"+shan.str_keep("/",shan.str_extract('href="(.*?)">',part))
