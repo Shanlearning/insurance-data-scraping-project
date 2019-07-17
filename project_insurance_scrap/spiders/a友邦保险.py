@@ -2,7 +2,7 @@
 import scrapy
 from scrapy_splash import SplashRequest
 from project_insurance_scrap.items import ProjectInsuranceScrapItem
-import project_insurance_scrap.scrapfunctions as shan
+import project_insurance_scrap.scrap_functions as shan
 import re
 
 lua = '''  #自定义lua脚本

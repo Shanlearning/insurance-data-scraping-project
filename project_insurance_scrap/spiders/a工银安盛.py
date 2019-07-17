@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from project_insurance_scrap.items import ProjectInsuranceScrapItem
-import project_insurance_scrap.scrapfunctions as shan
+import project_insurance_scrap.scrap_functions as shan
 
 class A工银安盛Spider(scrapy.Spider):
     name = '工银安盛'

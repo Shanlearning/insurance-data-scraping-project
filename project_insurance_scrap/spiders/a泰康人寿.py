@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
-from project_insurance_scrap.items import  ProjectInsuranceScrapItem
+from project_insurance_scrap.items import ProjectInsuranceScrapItem
 
 class A泰康人寿Spider(scrapy.Spider):
     name = '泰康人寿'
