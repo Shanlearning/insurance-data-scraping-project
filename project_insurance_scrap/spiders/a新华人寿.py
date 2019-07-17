@@ -2,7 +2,7 @@
 import scrapy
 import re
 from project_insurance_scrap.items import  ProjectInsuranceScrapItem
-import project_insurance_scrap.scrapfunctions as shan
+import project_insurance_scrap.scrap_functions as shan
 
 class A新华人寿Spider(scrapy.Spider):
     name = '新华人寿'
