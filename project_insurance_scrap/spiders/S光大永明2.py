@@ -6,35 +6,11 @@ import project_insurance_scrap.scrap_functions as shan
 
 
 class A光大永明Spider(scrapy.Spider):
-    name = '光大永明'
+    name = '在光大永明'
     #http://www.sunlife-everbright.com/sleb/info/jbxx/cpjbxx/cpxxp/468a89fa-1.html
-
+    
     def start_requests(self):
-        urls = ['http://www.sunlife-everbright.com/sleb/info/jbxx/cpjbxx/jydbxcpmljtk/index.html',]
-        header = {
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-            'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7',
-            'Cache-Control': 'max-age=0',
-            'Connection': 'keep-alive',
-            'Cookie': 'UM_distinctid=16bf890f1d1a8b-07c0c9991911d5-7a1437-144000-16bf890f1d2a76; CNZZDATA1274208563=154589921-1563242927-%7C1563430883',
-            'Host': 'www.sunlife-everbright.com',
-            'If-Modified-Since': 'Tue, 09 Jul 2019 03:26:46 GMT',
-            'If-None-Match': "40a72-58d37215cc980-gzip",
-            'Referer': 'http://www.sunlife-everbright.com/sleb/info/jbxx/cpjbxx/cpxxp/468a89fa-10.html',
-            'Upgrade-Insecure-Requests': '1',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
-            }
-        for url in urls:
-            yield scrapy.Request(url=url, headers= header,callback=self.first_parse)
-
-    def first_parse(self,response):
-        result = response.css("tr").extract()
-        zs_result = result[shan.which(shan.str_detect("在售", result))[0]:shan.which(shan.str_detect("停售", result))[0]]
-        zs_result = shan.str_keep("(寿|保)险", zs_result)
-        ts_result = result[shan.which(shan.str_detect("停售", result))[0]:len(result)]
-        ts_result = shan.str_keep("(寿|保)险", ts_result)
-
+        #
         urls = ['http://www.sunlife-everbright.com/sleb/info/jbxx/cpjbxx/cpxxp/468a89fa-1.html']
         
         header = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
@@ -50,26 +26,27 @@ class A光大永明Spider(scrapy.Spider):
                   'Upgrade-Insecure-Requests': '1',
                   'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36',
                   }
-        yield scrapy.Request(url=urls, headers= header ,callback=self.second_parse)
 
-    def second_parse(self, response):
-        # 从每一行抽取数据
-        result = response.css('.news_list a').extract()
+        for url in urls:
+            yield scrapy.Request(url=url, headers= header ,callback=self.parse)
+    
+    def parse(self, response):
+         # 从每一行抽取数据
+        result =  response.css('.news_list a').extract()
         for part in result:
-            # 在售保险的内容输入
-            item = ProjectInsuranceScrapItem()
-            item['company_name'] = '光大永明'
-            item['product_name'] = shan.str_extract('title="(.*?)"',part)
-            item['product_sale_status'] = scrapy.Request('http://www.sunlife-everbright.com/sleb/info/jbxx/cpjbxx/jydbxcpmljtk/index.html', callback= self.zts_parse , meta=({'item': item}) )
-            contract_link = re.findall('href="(.*?)" ', part)[0]
-            contract_link = "http://www.sunlife-everbright.com" + contract_link
-            yield response.follow(contract_link, callback= self.contract_parse , meta=({'item': item}) )
-                    
+                # 在售保险的内容输入
+                item = ProjectInsuranceScrapItem()
+                item['company_name'] = '光大永明'
+                item['product_name'] = shan.str_extract('title="(.*?)"',part)
+                contract_link = re.findall('href="(.*?)" ', part)[0]
+                contract_link = "http://www.sunlife-everbright.com" + contract_link
+                yield response.follow(contract_link, callback= self.contract_parse , meta=({'item': item}) )
+
         # 找到下一页的代码
         a = str(response.css('.pagingNormal').extract())
         next_pages = re.findall("/sleb/info/jbxx/cpjbxx/cpxxp/468a89fa-\d+[.]html",a)
         for next_page in next_pages:
-            yield response.follow("http://www.sunlife-everbright.com"+next_page, callback=self.second_parse)
+            yield response.follow("http://www.sunlife-everbright.com"+next_page, callback=self.parse)
 
     def contract_parse(self, response):
         result = response.css("tr")
@@ -110,9 +87,8 @@ class A光大永明Spider(scrapy.Spider):
             item['prodcct_law_response_link'] = "http://www.sunlife-everbright.com" + shan.str_extract('href="(.*?)"',g)
         else:
             item['prodcct_law_response_link'] = ''
-        sale_status_url = ['http://www.sunlife-everbright.com/sleb/info/jbxx/cpjbxx/jydbxcpmljtk/index.html', ]
         yield item
-
+        
              
         
     
