@@ -13,7 +13,7 @@ class ProjectInsuranceScrapPipeline(object):
     
     def spider_opened(self, spider):
         # 修改此处的文件储存路径
-        dir = 'E:/insurance/保险公司数据统计/'
+        dir = 'E:/insurance/stored_data/company_summary'
         self.file = open( dir + spider.name+ '.csv', 'w+b')
         self.exporter = CsvItemExporter(self.file, encoding='utf-8-sig')
         self.exporter.start_exporting()
