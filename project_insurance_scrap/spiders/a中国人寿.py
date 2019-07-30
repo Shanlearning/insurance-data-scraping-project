@@ -25,7 +25,6 @@ class A中国人寿Spider(scrapy.Spider):
             # 在售保险的内容输入
             item = ProjectInsuranceScrapItem()            
             item['company_name'] = '中国人寿'
-
             item['product_name'] = re.sub(" ","",re.sub("\d+[.]", "" ,part.css("a::text").getall()[1]))
             item['product_sale_status'] = '在售'
             item['product_contract_link'] = "http://www.e-chinalife.com/" + part.css("::attr(href)").get()
@@ -45,11 +44,9 @@ class A中国人寿Spider(scrapy.Spider):
             # 停售保险的内容输入
             item = ProjectInsuranceScrapItem()            
             item['company_name'] = '中国人寿'
-
             item['product_name'] = re.sub(" ","",re.sub("\d+[.]", "" ,part.css("a::text").getall()[1]))
             item['product_sale_status'] = '停售'
             item['product_contract_link'] = "http://www.e-chinalife.com/" + part.css("::attr(href)").get()
-
             # 输出数据
             yield item 
         
