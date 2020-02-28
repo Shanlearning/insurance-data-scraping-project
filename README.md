@@ -1,5 +1,5 @@
 # project_insurance_scrap
 
-details(might be outdated): 
+using python scrapy to scrape all insurance company data:
 
-+ https://github.com/Shanlearning/inusrance_pdf__table_extract_project/blob/master/description.pdf
+project_insurance_scrap\spiders : https://github.com/Shanlearning/project_insurance_scrap/tree/master/project_insurance_scrap/spiders
